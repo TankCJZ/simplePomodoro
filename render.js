@@ -15,7 +15,11 @@ function main() {
 
 function updateTime(ms) {
   let timerDom = document.getElementById('timer');
-  timerDom.innerText = ms;
+  let s = (ms / 1000).toFixed(0);
+  let ss = s % 60;
+  let mm = (s / 60).toFixed(0);
+
+  timerDom.innerText = `${mm.toString().padStart(2, 0)}: ${ss.toString().padStart(2, 0)}`;
 }
 
 async function notification() {

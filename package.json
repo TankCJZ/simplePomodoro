@@ -14,7 +14,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "electron": "^10.0.0",
+    "electron": "^10.1.1",
+    "node-notifier": "^8.0.0",
     "timer.js": "^1.0.4"
   }
 }

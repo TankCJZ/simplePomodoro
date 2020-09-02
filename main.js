@@ -1,4 +1,5 @@
 const { app, BrowserWindow, Notification, ipcMain } = require("electron");
+const notifier = require('node-notifier');
 
 let win = null;
 // 创建窗体
@@ -15,37 +16,30 @@ function createWindow() {
   win.loadFile("index.html");
 
   //响应ipc事件
-  
   handleIPC();
+  
   // 打开开发工具
   win.webContents.openDevTools();
 }
 
 function handleIPC() {
+
   ipcMain.handle("work-notification", async function() {
+    return new Promise((resolve, reject) => {
+      notifier.notify({
+        title: '任务结束',
+        message: '是否开始休息?',
+        actions: ['Confirm', 'Cancel'],
+        type: 'info'
+      }, (error, action) => {
+        if (action === 'confirm') {
+          resolve('rest');
+        } else if (action === 'cancel') {
+          resolve('work');
+        }
+      });
 
-    let res = new Promise((resolve, reject) => {
-      let notification = new Notification({
-        title: "任务结束",
-        body: "是否开始休息",
-        actions: [
-          {
-            text: "开始休息",
-            type: "button",
-          },
-        ],
-        closeButtonText: '继续工作'
-      });
-      notification.show();
-      notification.on("action", () => {
-        resolve('rest');
-      });
-      notification.on("close", () => {
-        resolve('work');
-      });
     });
-
-    return res;
 
   });
 }
@@ -56,6 +50,7 @@ app.whenReady().then(createWindow);
 app.on("window-all-closed", () => {
   if (process.platform !== "darwin") {
     app.quit();
+    ipcMain.removeAllListeners();
   }
 });
 
@@ -64,4 +59,3 @@ app.on("activate", () => {
     createWindow();
   }
 });
-
