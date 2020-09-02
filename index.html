@@ -1,14 +1,44 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <title>番茄时钟</title>
-    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
-  </head>
-  <body>
-   <div class="container" id="timer">
 
-   </div>
-   <script src="./render.js"></script>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <title>番茄时钟</title>
+  <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+  <style>
+    .container{
+      position: relative;
+      margin: 0 auto;
+      width: 150px;
+      height: 150px;
+    }
+    .text{
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 100%;
+      text-align: center;
+      transform: translateX(-50%) translateY(-50%);
+      font-size: 28px;
+      color: #1593FF;
+    }
+    svg {
+      transform: rotate(-90deg);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container" id="timer">
+    <svg width="150px" height="150px" class="svg">
+      <circle r="70" cy="75" cx="75" stroke-width="8" stroke="#EAEFF4" stroke-linejoin="round" stroke-linecap="round"
+        fill="none" />
+      <circle id="path" class="progress" r="70" cy="75" cx="75" stroke-width="8" stroke="#1593FF" stroke-linejoin="round"
+        stroke-linecap="round" fill="none" stroke-dashoffset="0px" stroke-dasharray="2px 437px" />
+    </svg>
+    <div class="text" id="text">00</div>
+  </div>
+  <script src="./render.js"></script>
+</body>
+
 </html>

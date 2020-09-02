@@ -1,5 +1,7 @@
 const { ipcRenderer } = require('electron');
 const Timer = require('timer.js');
+const totalTime = 100;
+const progressLength = 437;
 
 function main() {
   let timer = new Timer({
@@ -10,16 +12,23 @@ function main() {
       notification();
     }
   });
-  timer.start(10);
+  timer.start(totalTime);
 }
 
 function updateTime(ms) {
-  let timerDom = document.getElementById('timer');
+  let timerDom = document.getElementById('text');
   let s = (ms / 1000).toFixed(0);
   let ss = s % 60;
   let mm = (s / 60).toFixed(0);
 
   timerDom.innerText = `${mm.toString().padStart(2, 0)}: ${ss.toString().padStart(2, 0)}`;
+  setProgress(1 - ms / (totalTime * 1000));
+}
+
+function setProgress(num) {
+  let path = document.querySelector('#path');
+  // 可获取路径的长度
+  path.setAttribute('stroke-dasharray', `${(progressLength * num).toFixed(2)}px ${progressLength}px`);
 }
 
 async function notification() {
