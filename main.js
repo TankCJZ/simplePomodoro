@@ -1,15 +1,21 @@
-const { app, BrowserWindow, Notification, ipcMain } = require("electron");
+const { app, BrowserWindow, ipcMain, Menu } = require("electron");
 const notifier = require('node-notifier');
 
 let win = null;
 // 创建窗体
 function createWindow() {
   win = new BrowserWindow({
-    width: 300,
+    width: 240,
     height: 300,
     webPreferences: {
       nodeIntegration: true,
     },
+    resizable: false,
+    minimizable: false,
+    maximizable: false,
+    titleBarStyle: 'hidden',
+    icon: './static/favicon.ico',
+    title: '番茄时钟',
   });
 
   // 加载index.html文件
@@ -20,6 +26,10 @@ function createWindow() {
   
   // 打开开发工具
   win.webContents.openDevTools();
+  // 关门菜单
+  Menu.setApplicationMenu(null);
+  // 置顶
+  win.setAlwaysOnTop(true);
 }
 
 function handleIPC() {

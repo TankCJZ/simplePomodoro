@@ -8,7 +8,7 @@
   <style>
     .container{
       position: relative;
-      margin: 0 auto;
+      margin: 40px auto auto;
       width: 150px;
       height: 150px;
     }
@@ -25,6 +25,19 @@
     svg {
       transform: rotate(-90deg);
     }
+    .btn{
+      margin: 10px auto auto;
+      width: 80px;
+      height: 28px;
+      background: rgb(21, 147, 255);
+      border-radius: 5px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      cursor: pointer;
+      font-size: 12px;
+    }
   </style>
 </head>
 
@@ -34,9 +47,13 @@
       <circle r="70" cy="75" cx="75" stroke-width="8" stroke="#EAEFF4" stroke-linejoin="round" stroke-linecap="round"
         fill="none" />
       <circle id="path" class="progress" r="70" cy="75" cx="75" stroke-width="8" stroke="#1593FF" stroke-linejoin="round"
-        stroke-linecap="round" fill="none" stroke-dashoffset="0px" stroke-dasharray="2px 437px" />
+        stroke-linecap="round" fill="none" stroke-dashoffset="0px" stroke-dasharray="1px 437px" />
     </svg>
-    <div class="text" id="text">00</div>
+    <div class="text" id="text">00: 00</div>
+
+    <div class="btn btn-primary" id="startBtn">
+      <span>开始</span>
+    </div>
   </div>
   <script src="./render.js"></script>
 </body>
