@@ -5,16 +5,17 @@
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "electron-builder --win --x64",
     "start": "electron ."
-  },
-  "build": {
-    "appId": "com.test.app"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "devDependencies": {
+    "electron-builder": "^22.8.0",
+    "electron": "^10.1.1"
+  },
   "dependencies": {
-    "electron": "^10.1.1",
     "node-notifier": "^8.0.0",
     "timer.js": "^1.0.4"
   }

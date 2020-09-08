@@ -25,7 +25,7 @@ function createWindow() {
   handleIPC();
   
   // 打开开发工具
-  win.webContents.openDevTools();
+  // win.webContents.openDevTools();
   // 关门菜单
   Menu.setApplicationMenu(null);
   // 置顶
