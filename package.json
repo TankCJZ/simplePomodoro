@@ -18,5 +18,23 @@
   "dependencies": {
     "node-notifier": "^8.0.0",
     "timer.js": "^1.0.4"
-  }
+  },
+  "build": {
+    "productName": "番茄时钟",
+		"appId": "com.pomodoro.app",
+		"directories": {
+			"output": "dist"
+		},
+		"win": {
+      "icon": "./icon.png",
+			"target": [
+				"nsis",
+				"zip"
+			]
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    }
+	}
 }

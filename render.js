@@ -115,6 +115,8 @@ function btnAddListener() {
     workTime = (Number(workTimeDom.value) * 60).toFixed(0);
     settingWrap.classList.toggle('show');
     reset();
+    startBtn.children[0].innerText = '工作中';
+    status = 1;
   });
 }
 // 移除事件绑定
