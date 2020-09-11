@@ -13,7 +13,7 @@
 
 git clone https://github.com/TankCJZ/simplePomodoro.git  
 cd simplePomodoro  
-yarn install
+yarn install  
 yarn run start
 
 
