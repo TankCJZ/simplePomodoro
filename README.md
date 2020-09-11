@@ -9,13 +9,14 @@
 ![setting](https://blog-images-file.oss-cn-beijing.aliyuncs.com/simplePomodoro/set.png)
 ![confirm](https://blog-images-file.oss-cn-beijing.aliyuncs.com/simplePomodoro/confirm.png)
 
-## Install
+## Run
 
-git clone https://github.com/TankCJZ/simplePomodoro.git
-cd simplePomodoro
-cnpm install && cnpm run start
+git clone https://github.com/TankCJZ/simplePomodoro.git  
+cd simplePomodoro  
+yarn install
+yarn run start
 
 
 ## Build
 
-npm run build
+yarn run build
