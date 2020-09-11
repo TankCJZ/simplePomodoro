@@ -8,3 +8,14 @@
 ![rest](https://blog-images-file.oss-cn-beijing.aliyuncs.com/simplePomodoro/rest.png)
 ![setting](https://blog-images-file.oss-cn-beijing.aliyuncs.com/simplePomodoro/set.png)
 ![confirm](https://blog-images-file.oss-cn-beijing.aliyuncs.com/simplePomodoro/confirm.png)
+
+## Install
+
+git clone https://github.com/TankCJZ/simplePomodoro.git
+cd simplePomodoro
+cnpm install && cnpm run start
+
+
+## Build
+
+npm run build
